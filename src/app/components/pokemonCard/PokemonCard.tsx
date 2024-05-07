@@ -1,7 +1,7 @@
-import { TPokemon } from '@/app/types/services/pokemon';
+import { TPokemon } from '@/types/services/pokemon';
 import Image from 'next/image';
 import { FC, ComponentPropsWithoutRef } from 'react';
-import { SimpleTag } from '@/app/components/simpleTag';
+import { SimpleTag } from '@/components/simpleTag';
 
 type TPokemonCard = ComponentPropsWithoutRef<'li'> & {
   pokemon: TPokemon;
@@ -9,7 +9,7 @@ type TPokemonCard = ComponentPropsWithoutRef<'li'> & {
 
 const PokemonCard: FC<TPokemonCard> = ({ pokemon, ...restProps }) => (
   <li
-    className='p-3 rounded-xl shadow-custom bg-slate-300 dark:bg-slate-800 w-56 flex items-center flex-col flex-grow-0'
+    className='p-3 rounded-xl shadow-custom bg-slate-300 hover:bg-slate-400 dark:bg-slate-800 hover:dark:bg-gray-600 cursor-pointer w-56 flex items-center flex-col flex-grow-0 transition duration-400 ease-out'
     { ...restProps }
   >
     <div>

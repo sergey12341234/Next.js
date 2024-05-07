@@ -9,17 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.1.0",
     "@tanstack/react-query": "^5.8.1",
     "@tanstack/react-query-devtools": "^5.8.1",
     "@tanstack/react-query-next-experimental": "^5.8.1",
     "axios": "^1.6.1",
     "clsx": "^2.0.0",
     "next": "14.0.1",
+    "next-redux-wrapper": "^8.1.0",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "react-intersection-observer": "^9.5.3",
     "react-loader-spinner": "^5.4.5",
+    "react-redux": "^9.1.0",
     "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {

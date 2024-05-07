@@ -1,8 +1,7 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import {
-  useState, FC, ComponentPropsWithoutRef, useEffect,
+  FC, ComponentPropsWithoutRef,
 } from 'react';
 import { LineWave } from 'react-loader-spinner';
 

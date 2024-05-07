@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { ListOfPokemons } from './components/listOfPokemons';
-import { PortalSpinner } from './components/spiners/portalSpinner';
-import { useGetPokemonsGorInfiniteScroll } from './hooks/useGetPokemonsForInfiniteScroll';
+import { ListOfPokemons } from '@/components/listOfPokemons';
+import { PortalSpinner } from '@/components/spiners/portalSpinner';
+import { useGetPokemonsGorInfiniteScroll } from '@/hooks/useGetPokemonsForInfiniteScroll';
+import { TPokemon } from './types/services/pokemon';
 
 export default function Home() {
   const { ref, inView } = useInView();
@@ -36,12 +37,20 @@ export default function Home() {
   //     return pokemonsWithAllInfo;
   //   },
   // });
+  const filteredPokemonPages = useMemo(() => {
+    if (data && data.pages) {
+      const res = data.pages
+        .filter((page) => page !== null) as { count: number; result: TPokemon[]; pageParam: number; }[];
+      return res;
+    }
+    return null;
+  }, [ data ]);
 
   return (
     <div className='flex min-h-screen flex-col items-center p-24 relative'>
       { isFetching && <PortalSpinner /> }
-      { !isLoading && data?.pages
-      && <ListOfPokemons innerRef={ ref } pokemonPages={ data.pages } />}
+      { !isLoading && filteredPokemonPages
+      && <ListOfPokemons innerRef={ ref } pokemonPages={ filteredPokemonPages } />}
       {error && <div>{error.message}</div>}
     </div>
   );

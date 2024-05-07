@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
   const limit = request.nextUrl.searchParams.get('limit') as string;
   const offset = request.nextUrl.searchParams.get('offset') as string;
 
-  // Parse the URL 
+  // Parse the URL
   const url = new URL(`${apiUri}/pokemon`);
 
   // Create query parameters

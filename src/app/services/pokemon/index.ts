@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
-import { TGetPokemonResponse, TGetPokemonsResponse } from '@/app/types/services/pokemon';
-import { GET_POKEMONS_LIMIT } from '@/app/utils/constants';
+import { AxiosError, isAxiosError } from 'axios';
+import { TGetPokemonResponse, TGetPokemonsResponse } from '@/types/services/pokemon';
+import { GET_POKEMONS_LIMIT } from '@/utils/constants';
 import { BaseApi } from '../BaseApi';
 
 type TGetPokemonByIdParams = {
@@ -13,8 +14,11 @@ type TGetPokemonsParams = {
 }
 
 class PokemonService extends BaseApi {
-  async getPokemons({ offset = 0 }: TGetPokemonsParams): Promise<TGetPokemonsResponse> {
-    const res = await this.getRequest(`pokemon?limit=${GET_POKEMONS_LIMIT}&offset=${offset}`);
+  async getPokemons({ offset = 0 }: TGetPokemonsParams): Promise<TGetPokemonsResponse | AxiosError> {
+    const res = await this.getRequest<TGetPokemonsResponse>(`pokemon?limit=${GET_POKEMONS_LIMIT}&offset=${offset}`);
+
+    if (!isAxiosError(res)) return res.data;
+
     return res;
   }
 
@@ -24,8 +28,10 @@ class PokemonService extends BaseApi {
    * @returns the api response of pokemon info
    */
 
-  async getPokemonById({ name }: TGetPokemonByIdParams): Promise<TGetPokemonResponse> {
-    const res = await this.getRequest(`pokemon/${name}`);
+  async getPokemonById({ name }: TGetPokemonByIdParams): Promise<TGetPokemonResponse | AxiosError> {
+    const res = await this.getRequest<TGetPokemonResponse>(`pokemon/${name}`);
+    if (!isAxiosError(res)) return res.data;
+
     return res;
   }
 }

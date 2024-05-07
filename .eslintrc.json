@@ -26,10 +26,18 @@
     }
   },
   "rules": {
+    "max-len": "off",
+    "camelcase": 1,
+    "class-methods-use-this": 0,
+    "arrow-body-style": 0,
+    "react/no-unused-prop-types": 1,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "linebreak-style": 0,
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "react/function-component-definition": "off",
-    "no-console": "error",
+    "no-console": "warn",
     "no-inline-comments": "error",
     "spaced-comment": ["error", "always", { "markers": ["/"] }],
     "jsx-a11y/click-events-have-key-events": "off",
@@ -40,13 +48,13 @@
     "no-shadow": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
-    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
-    "import/extensions": ["error", "ignorePackages", {
-      "js": "never",
-      "jsx": "never",
-      "ts": "never",
-      "tsx": "never"
-    }],
+    // "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    // "import/extensions": ["error", "ignorePackages", {
+    //   "js": "never",
+    //   "jsx": "never",
+    //   "ts": "never",
+    //   "tsx": "never"
+    // }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx", ".gql"] }],
     "react/prop-types": "off",
@@ -58,7 +66,7 @@
         "aspects": ["invalidHref", "preferButton"]
       }
     ],
-    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/no-unused-vars": 1,
     "no-unused-vars": "off",
     "react/jsx-curly-spacing": [2, {"when": "always"}],
     "object-curly-spacing": ["error", "always"],
