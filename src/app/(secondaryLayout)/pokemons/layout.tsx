@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import '@/globals.css';
 import { twMerge } from 'tailwind-merge';
-import Providers from './components/providers';
-import ThemeSwitcher from './components/themeSwitcher/ThemeSwitcher';
+import Providers from '../../components/providers';
+import ThemeSwitcher from '../../components/themeSwitcher/ThemeSwitcher';
 
 const montserrat = Montserrat({ subsets: [ 'latin' ] });
 
@@ -18,13 +18,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
-      <body className={ twMerge('bg-slate-200 dark:bg-slate-900 min-h-screen', montserrat.className) }>
-        <Providers>
-          {children}
-          <div id='portal' />
-        </Providers>
-      </body>
-    </html>
+    <div>
+      Layout
+      { children }
+    </div>
   );
 }

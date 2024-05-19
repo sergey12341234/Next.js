@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { ListOfPokemons } from '@/components/listOfPokemons';
 import { PortalSpinner } from '@/components/spiners/portalSpinner';
 import { useGetPokemonsGorInfiniteScroll } from '@/hooks/useGetPokemonsForInfiniteScroll';
-import { TPokemon } from './types/services/pokemon';
+import { TPokemon } from '../../types/services/pokemon';
 
 export default function Home() {
   const { ref, inView } = useInView();
