@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, ReactNode, FC } from 'react';
-import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
@@ -20,9 +19,7 @@ const TanstackProvider: FC<TTanstackProvider> = ({ children }) => {
 
   return (
     <QueryClientProvider client={ client }>
-      <ReactQueryStreamedHydration>
-        {children}
-      </ReactQueryStreamedHydration>
+      {children}
       <ReactQueryDevtools initialIsOpen={ false } />
     </QueryClientProvider>
   );

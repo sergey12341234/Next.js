@@ -12,4 +12,8 @@ export const NAVIGATION_LINKS: NavigationLink[] = [
     link: '/pokemons',
     text: 'Pokemons',
   },
+  {
+    link: '/movies-api',
+    text: 'Movies Api',
+  },
 ];

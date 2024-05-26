@@ -1,6 +1,8 @@
-import { MOVIE_API_KEY } from '@/utils/constants';
+import { MOVIE_API_KEY, MOVIE_API_URL } from '@/utils/constants';
 
-export const moviesFetch = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
+export const moviesFetch = async (url: string, init?: RequestInit): Promise<Response> => {
+  const localUrl = `${MOVIE_API_URL}/${url}`;
+
   const headers = {
     'X-API-KEY': MOVIE_API_KEY as string,
     ...init?.headers,
@@ -11,5 +13,5 @@ export const moviesFetch = async (input: RequestInfo, init?: RequestInit): Promi
     headers,
   };
 
-  return fetch(input, modifiedInit);
+  return fetch(localUrl, modifiedInit);
 };
