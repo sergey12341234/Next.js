@@ -16,17 +16,21 @@ const MoviesListItem: FC<TMoviesListItem> = ({
       className='w-[256px]'
       { ...restProps }
     >
-      <div
-        className='w-[256px] relative h-[384px]'
+      <Link
+        href={ `/movies-api/${movie.kinopoiskId}` }
       >
-        <Image
-          alt={ movie.nameEn }
-          src={ movie.posterUrlPreview }
-          quality={ 100 }
-          layout='fill'
-          objectFit='cover'
-        />
-      </div>
+        <div
+          className='w-[256px] relative h-[384px]'
+        >
+          <Image
+            alt={ movie.nameRu || '' }
+            src={ movie.posterUrlPreview }
+            quality={ 100 }
+            fill
+            sizes='100%'
+          />
+        </div>
+      </Link>
       <h5
         className='text-2xl dark:text-white text-slate-950 mt-2'
       >
